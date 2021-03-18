@@ -1,4 +1,6 @@
+1、在判断文字是否溢出时，通常使用dom.scrollWidth > dom.width，最好设置容器display: none，否则有可能出现scrollWidth和with一样的情况。
 
+2、（IOS）一旦某元素绑定了click或mousedown或touchmove等事件，在触发这些事件时会自动使输入框失焦，而当未绑定事件时，点击输入框外部的内容，输入框不会失焦。
 
 3、（IOS） 计算得到NaN 
 问题原因：除法运算中，分母为0。
@@ -131,3 +133,21 @@ setInterval(() => {
 
 27、last-of-type不生效问题
 问题原因：使用last-of-type的元素节点之后不可有兄弟节点
+
+28、长图片和宽图片同时自适应父容器
+```javascript
+	max-height：100%;
+	max-height：100%;
+```
+
+29、文字多行溢出省略号
+```javascript
+	overflow: hidden;
+	-webkit-line-clamp: 5;
+	moz-line-clamp: 5;
+	ms-line-clamp: 5;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-ms-box-orient: vertical;
+	-moz-box-orient: vertical;
+```
