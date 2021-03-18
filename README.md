@@ -109,8 +109,8 @@ setInterval(() => {
 ![avatar](./images/image.png)
 
 24、（IOS）ios滚动穿透问题
-1、当触摸元素有-webkit-overflow-scrolling样式时，若触摸元素有滚动条，则不会发生滚动穿透，若触摸元素无滚动条，则touchmove事件依然会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般弹框是这种情况，这也是需要主要处理情况，而且这并不是由事件穿透造成的bug，所以阻止事件传播并没有用。
-2、当触摸元素无-webkit-overflow-scrolling样式时，不管有无滚动条，touchmove事件都会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般黑色背景遮罩都是这种情况。
+ 1、当触摸元素有-webkit-overflow-scrolling样式时，若触摸元素有滚动条，则不会发生滚动穿透，若触摸元素无滚动条，则touchmove事件依然会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般弹框是这种情况，这也是需要主要处理情况，而且这并不是由事件穿透造成的bug，所以阻止事件传播并没有用。
+ 2、当触摸元素无-webkit-overflow-scrolling样式时，不管有无滚动条，touchmove事件都会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般黑色背景遮罩都是这种情况。
 解决方法一、触摸元素内部解决。对于本身无需滚动的元素，可直接在touchmove上阻止默认事件e.preventDefault()来达到目的。而对于不确定触摸元素是否可以滚动的元素，为触摸元素添加-webkit-overflow-scrolling样式，并且在touchmove中判断自身无滚动条时，阻止默认事件e.preventDefault()。
 解决方法二、触摸元素外部解决。一般触摸元素为弹框，当触摸元素显示时，为穿透滚动的元素添加overflow: hidden属性，使其无法滚动，当触摸元素隐藏时，去除穿透滚动元素的overflow: hidden属性。
 可根据触摸元素和穿透滚动的元素的数量，自行选择改动量较小的解决方案。
