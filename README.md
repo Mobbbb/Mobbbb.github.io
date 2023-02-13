@@ -1,153 +1,227 @@
-1、在判断文字是否溢出时，通常使用dom.scrollWidth > dom.width，最好设置容器display: none，否则有可能出现scrollWidth和with一样的情况。
+[![](https://i.imgur.com/zNBkzj1.png)](https://beautifuljekyll.com/plans/)
 
-2、（IOS）一旦某元素绑定了click或mousedown或touchmove等事件，在触发这些事件时会自动使输入框失焦，而当未绑定事件时，点击输入框外部的内容，输入框不会失焦。
+# Beautiful Jekyll
 
-3、（IOS） 计算得到NaN 
-问题原因：除法运算中，分母为0。
+[![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
 
-4、（IOS）ios8 内层fixed定位失效，表现为与absolute效果相同
-解决办法：fixed定位元素放置最外层
-但是当页面滚动触底反弹时，fixed定位在ios上又会出现固定不动的情况
-解决办法：放置到外层，定位变更为absolute
+> By [Dean Attali](https://deanattali.com) &middot; [Demo](https://beautifuljekyll.com/)
 
-5、（IOS）输入框无法呼出虚拟键盘，
-问题原因：加了样式-webkit-user-select: none;
-解决方案：改成webkit-user-select: text;
+**Beautiful Jekyll** is a ready-to-use template to help you create a beautiful website quickly. Perfect for personal sites, blogs, or simple project websites.  [Check out a demo](https://beautifuljekyll.com) of what you'll get after just two minutes.  You can also look at [my personal website](https://deanattali.com) or [my consulting website](https://attalitech.com) to see it in use, or see [examples of websites](http://beautifuljekyll.com/examples) other people created using this theme.
 
-6、（IOS）输入框自动聚焦问题，手动点击按钮，显示另一个组件输入框主动聚焦
-问题原因：该组件为异步组件，无法实现（v-if和v-show也是无法实现的）。
-解决方案：$(‘input’).focus().triggerHandler(‘click’)   组件显示和隐藏使用zindex和透明度，
-若使用v-if，则上述的聚焦方法需要包裹在this.$nextTick(() => {})内部，此时ios系统仍然认为此次触发是非人为。
+**If you enjoy Beautiful Jekyll, please consider [supporting me](https://github.com/sponsors/daattali) for over 5 years of development (and to unlock rewards!) ❤**
 
-7、（IOS）
-现象一、ip8p和ip6页面滚动时上下抖动
-现象二、ip8p tab title切换延迟overflow hidden异常(也是上述原因造成的，不过当拿掉overflow hidden后也能恢复正常)
-解决方案：@keyframe添加的动画再加上absolute定位造成了ios滚动出现抖动现象
+## Table of contents
 
-8、（IOS）ipX左右切换时，使用overflow: hidden样式来阻止页面上下滚动，此时若存在上下位移时（即不是非常水平的左右切换），松手后页面scrollTop会被置为0
-问题原因：overflow hidden的原因，上下位移过程中scroll变成了负的（ios即使页面没有滚动条，也是可以滚动的）
-解决办法：使用e.stopPropagetion()  if (e.cancelabel) e.preventDefault() 阻止页面滚动
+- [Features](#features)
+- [Sponsors 🏆](#sponsors)
+- [**Build your website in 3 steps**](#build-your-website-in-3-steps)
+- [Plans](#plans)
+- [Add your own content](#add-your-own-content)
+- [Customizing parameters for each page](#customizing-parameters-for-each-page)
+- [Supported parameters](#supported-parameters)
+- [Featured users (success stories!)](#featured-users-success-stories)
+- [FAQ and support](#faq-and-support)
+- [Credits and contributions](#credits)
 
-9、（IOS）fixed布局top: 0; bottom: 0; left: 0; right: 0;的fixeddom，点击内部输入框调起软键盘后，页面出现滚动条，滚动内容为fixeddom
-解决办法：暂未解决
+# Features
 
-10、（Android）轮播布局父flex，子flex-shrink
-问题原因：安卓4.4.4不支持flex-shrink（ps：也不支持inline-flex）
-解决方案：父：white-space: nowrap;，子：display: inline-block;
+__Check out [*What's New?*](https://beautifuljekyll.com/updates/) to see the latest features!__
+
+- **SIMPLE**: The primary goal of Beautiful Jekyll is to allow literally *anyone* to create a website in a few minutes.
+- **Modern**: Uses the latest best practices and technologies to achieve nearly perfect scores on Google Chrome's Audit.
+- **Mobile-first**: Designed to look great on both large-screen and small-screen (mobile) devices.
+- **Highly customizable**: Many personalization settings such as changing the background colour/image, adding a logo.
+- **Flexible usage**: Use Beautiful Jekyll directly on GitHub or via a Ruby gem - choose the best [development method](#build-your-website-in-3-steps) for you.
+- **Battle-tested**: By using Beautiful Jekyll, you'll be joining 50,000+ users enjoying this theme since 2015.
+- **SEO and social media support**: Customize how your site looks on Google and when shared on social media.
+- **Comments support**: Add comments to any page using either [Disqus](https://disqus.com/), [Facebook comments](https://developers.facebook.com/docs/plugins/comments), [Utterances](https://utteranc.es/), [Staticman](https://staticman.net), [giscus](https://giscus.app), or [CommentBox](https://commentbox.io/).
+- **Tags**: Any blog post can be tagged with keywords, and an index page is automatically generated.
+- **Analytics**: Easily integrate Google Analytics, or other analytics platforms, to track visits to your website.
+- **Search**: Let users easily find any page using a Search button in the navigation bar.
+- **Photos support**: Any page can have a full-width cover photo and thumbnail.
+- **RSS**: An RSS feed is automatically created, so you can even host a podcast easily with Beautiful Jekyll.
+
+<h2 id="sponsors">Sponsors 🏆</h2>
+
+Developing and maintaining Beautiful Jekyll takes a lot of time and effort - thank you to anyone who helps fund this effort!
+
+- [LoadView-Testing](https://www.loadview-testing.com/products/jmeter-load-testing/)
+- [DoFollow](https://dofollow.co.uk/)
+- [\_hyp3ri0n](https://hyperiongray.com)
+
+**[Become a sponsor for Beautiful Jekyll and unlock special rewards\!](https://github.com/sponsors/daattali/sponsorships?tier_id=39856)**
+
+# Build your website in 3 steps
+
+There's a very easy way to use this theme, and there's a hard way. For most people (including myself!), the easy route is recommended. If you're an advanced user and want to tinker with the hard way (using ruby gems), then [skip the easy way](https://github.com/daattali/beautiful-jekyll#the-hard-way-using-ruby-gems) if you know what you're doing.
+
+## The easy way (recommended!)
+
+Getting started is *literally* as easy as 1-2-3 :smile:
+
+> A reminder for *advanced users only*: you can follow the instructions for [building locally](https://beautifuljekyll.com/getstarted/#install-steps-hard) if you want more control but higher difficulty
+
+Scroll down to see the steps involved, but here is a 40-second video just as a reference as you work through the steps. If you don't already have a [GitHub account](https://github.com/join), you'll need to sign up.
+
+![Installation steps](assets/img/install-steps.gif)
+
+### 1. Fork this project
+
+Fork this project by clicking the __*Fork*__ button at the top right corner of this page. Forking means that you now copied this entire project and all the files into your account.
+
+### 2. Rename the project to `<yourusername>.github.io`
+
+Click on __*Settings*__ at the top (the cog icon) and on that page you'll have an option to rename the project (*Repository name*). This will create a website with the **Beautiful Jekyll** template that will be available at `https://<yourusername>.github.io` within a couple minutes (check out the [FAQ](https://beautifuljekyll.com/faq/#custom-domain) if you want to use a different project name). If after a few minutes your website is still not ready, try making any edit to any file, just to force GitHub to re-build your site.
+
+### 3. Customize your website settings
+
+Edit the `_config.yml` file to change any settings you want. To edit the file, click on it to view the file and then click on the pencil icon to edit it (watch the video tutorial above if you're confused).  The settings in the file are self-explanatory and there are comments inside the file to help you understand what each setting does. Any line that begins with a hashtag (`#`) is a comment, and the other lines are actual settings.
+
+Note that in the video above only one setting in the `_config.yml` file is edited. **You should actually go through the rest of the settings as well. Don't be lazy, go through all the settings!**
+
+### 4. Congratulations! You have a website!
+
+After you save your changes to the `_config.yml` file (by clicking on *Commit changes* as the video tutorial shows), your website should be ready in a minute or two at `https://<yourusername>.github.io`. Every time you make a change to any file, your website will get rebuilt and should be updated in about a minute or so. Your website will be initialized with several sample blog posts and a couple other pages.
+
+Note that this was the easy way to *create* your website, but it does come at a cost: when Beautiful Jekyll gains new features in the future, *updating* your website to include all the latest features is cumbersome. See the [FAQ](https://beautifuljekyll.com/faq/#updating) for help with upgrading in the future.
+
+## The hard way (using ruby gems)
+
+If you followed the easy method above, then you already have your site and you can skip this section!
+
+If you want to use Beautiful Jekyll as a ruby gem instead, follow the [advanced installation instructions](https://beautifuljekyll.com/getstarted/#install-steps-hard). This is harder to set up initially, but it makes it super easy to keep your site up to date with Beautiful Jekyll when more features are added in the future.
+
+# Plans
+
+Beautiful Jekyll is, and always will be, free. But if you want to remove the Beautiful Jekyll ad from your website, use a Dark Mode skin, unlock other special rewards, or simply support the development efforts, [check out the different plans](https://beautifuljekyll.com/plans).
+
+# Add your own content
+
+To add pages to your site, you can either write a markdown file (`.md`) or you can write an HTML file. It's much easier to write markdown than HTML, so that's the recommended approach ([here's a great tutorial](https://markdowntutorial.com/) if you need to learn markdown in 5 minutes).
+
+To see an example of a markdown file, click on any file that ends in `.md`, for example [`aboutme.md`](./aboutme.md). On that page you can see some nicely formatted text (there's a word in bold, a link, a few bullet points), and if you click on the pencil icon to edit the file, you'll see the markdown code that generated the pretty text. Very easy!
+
+In contrast, look at [`tags.html`](./tags.html). That's how your write HTML - not as pretty. So stick with markdown if you don't know HTML.
+
+Any markdown or HTML file that you create will be available on your website under `https://<yourusername>.github.io/<pagename>`. For example, if you create a file `about.md` (or `about.html`) then it'll exist at `https://<yourusername>.github.io/about`.
+
+Files you create inside the [`_posts`](./_posts) directory will be treated as blog entries. You can look at the existing files there to get an idea of how to write blog posts. Note the format of the blog post files - they must follow the naming convention of `YEAR-MONTH-DAY-title.md`. After you successfully add your own post, you can delete the existing files inside [`_posts`](./_posts) to remove the sample posts, as those are just demo posts to help you learn.
+
+# Customizing parameters for each page
+
+**One last important thing**: In order to have your new pages use this template and not just be plain HTML pages, **you must add [YAML front matter](https://jekyllrb.com/docs/front-matter/) to the top of each page**:
 
 
-11、（Android）低版本安卓原生浏览器touch事件中touchmove执行一次问题
-解决方案：e.preventDefault() 阻止页面默认行为
-
-
-12、（Android）移动端软键盘回车文案改成搜索或前往字样
-网上解决办法：vue报错？（是因为这是原生js的写法，而且type=”search”不是必须的）
-```javascript
-<form action="" onsubmit="javascript: return false">
-	<input type="search">
-</form>
+```
+---
+---
 ```
 
-这种写法Android10和网页回车都会触发默认submit刷新页面
-```javascript
-<form action="">
-	<input>
-</form>
+This is where you'll be able to give each page some extra parameters (such as a title, a subtitle, an image, etc - [below is a list of all parameters](#supported-parameters)). Add any parameters you want between these two dashed lines, for example:
+
+```
+---
+title: Contact me
+subtitle: Here you'll find all the ways to get in touch with me
+---
 ```
 
-vue的写法
-```javascript
-<form action="" @submit.prevent="() => false">
-	<input>
-</form>
-```
+If you don't want to use any parameters on a page, you still need to use the two dashed lines. If you don't, then your file will be shown as-is without the Beautiful Jekyll template.
 
-13、在使用display:inline-block时无论如何都无法把两个水平的元素对齐
-解决办法：在使用内联块元素布局时需要结合vertical-align: top;不然无法水平对齐
+You can look at the top of [`aboutme.md`](https://raw.githubusercontent.com/daattali/beautiful-jekyll/master/aboutme.md) as an example.
 
-14、v-if条件展示的dom节点包含图片链接，当条件改变为true时，加载图片存在一定时间，会出现一段时间的空白期
-解决方案：使用v-show
+**Important takeaway: ALWAYS add the YAML front matter, which is two lines of three dashes, to EVERY page. If you have any parameters, they go between the two lines.**
 
-15、异步组件css过渡样式transition：bottom .3s，初次改变dom的bottom，无动画特效
-（延迟20ms改变bottom有平移动画，除异步组件首次加载之外同样有平移动画，应该是首次改变dom的bottom值，异步组件还未加载完毕）
-解决方案：使用vue的css过渡动画
+# Supported parameters
 
-16、在单位变成rem时，获取节点宽高时出现精度丢失问题，在经过多个数据后，误差放大发现问题
-解决方案：在获取节点宽高时，使用getBoundingClientRect().width，可获取小数点后3位
+Below is a list of the parameters that Beautiful Jekyll supports (any of these can be added to the YAML front matter of any page). Remember to also look in the `_config.yml` file to see additional site-wide settings.
 
-17、rem布局background 图片大小可能出现偏差，
-解决方案：如果是精灵图的话，图片周围预留1px，若是单张图片，background-size尽量使用100% 100% 而不是cover
+## Main parameters
 
-18、mousedown在移动端和pc端的不同表现
-移动端：手指触摸抬起后触发（表现与click一致）
-pc端：鼠标按下时触发
+These are the basic YAML parameters that you are most likely to use on most pages.
 
-19、video视频播放问题
-video需视频编码协议为h.264， h.265智能播放音频
-Safari video需视频接口允许携带range请求头，否则请求会报错range:'bytes=0-1'
-Safari video需视频接口返回明确格式的文件流，即下载文件后，文件带有后缀名
-video中使用source标签引入src无法动态更新src的视频内容，需要将src属性添加至video中
+Parameter   | Description
+----------- | -----------
+title       | Page or blog post title
+subtitle    | Short description of page or blog post that goes under the title
+tags        | List of tags to categorize the post. Separate the tags with commas and place them inside square brackets. Example: `[personal, analysis, finance]`
+cover-img   | Include a large full-width image at the top of the page. You can either provide the path to a single image (eg. `"/path/to/img"`) , or a list of images to cycle through (eg. `["/path/img1", "/path/img2"]`). If you want to add a caption to an image, then you must use the list notation (use `[]` even if you have only one image), and each image should be provided as `"/path/to/img" : "Caption of image"`.
+thumbnail-img | For blog posts, if you want to add a thumbnail that will show up in the feed, use `thumbnail-img: /path/to/image`. If no thumbnail is provided, then `cover-img` will be used as the thumbnail. You can use `thumbnail-img: ""` to disable a thumbnail.
+comments    | If you want do add comments to a specific page, use `comments: true`. Comments only work if you enable one of the comments providers (Facebook, disqus, staticman, utterances, giscus, CommentBox) in `_config.yml` file. Comments are automatically enabled on blog posts but not on other pages; to turn comments off for a specific post, use `comments: false`.
 
-参考地址：https://blog.csdn.net/qq_41787619/article/details/81182574 
+## Parameters for SEO and social media sharing
 
-20、（IOS）tab页卡切换，第一个tab正常切换，第二个以及之后的tab都无法切换
-解决方案：在包裹几个tab的父容器上添加属性width: fit-content 来使其能被子元素正常撑开，这样当第一个tab被切换走后（即父元素的位置发生了变动），后面的tab的touchmove事件依然能直接触发在父元素上
+These parameters let you control what information shows up when a page is shown in a search engine (such as Google) or gets shared on social media (such as Twitter/Facebook).
 
-21、（IOS）浮层弹框位置计算错误
-问题原因：在ios上offsetTop是相对最近的relative定位的父层级上边距，若没显示的指定relative的元素，则会一直向外寻找至最外层，所以offsetTop在使用时，需要指定relative谁定位
+Parameter   | Description
+----------- | -----------
+share-title | A title for the page. If not provided, then `title` will be used, and if that's missing then the site title (from `_config.yml`) is used.
+share-description | A brief description of the page. If not provided, then `subtitle` will be used, and if that's missing then an excerpt from the page content is used.
+share-img   | The image to show. If not provided, then `cover-img` or `thumbnail-img` will be used if one of them is provided.
 
-22、（< IOS 12.2）正常文档流布局时，首次弹出软件盘，输入框很大概率不出现在视口中
-解决方案：在页面加载完毕后，循环做以下操作
-```javascript
-setInterval(() => {
-	$('input')[0]..scrollIntoView({
-        block: 'end',
-        behavior: 'auto'
-    });
-})
-```
+## Less commonly used parameters
 
-23、（IOS 12）发送消息后，输入框悬在半空不回落（点击事件使用了mousedown，发生在失焦事件之前）
-![avatar](./images/image.png)
+These are parameters that you may not use often, but can come in handy sometimes.
 
-24、（IOS）ios滚动穿透问题
- 1、当触摸元素有-webkit-overflow-scrolling样式时，若触摸元素有滚动条，则不会发生滚动穿透，若触摸元素无滚动条，则touchmove事件依然会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般弹框是这种情况，这也是需要主要处理情况，而且这并不是由事件穿透造成的bug，所以阻止事件传播并没有用。
- 2、当触摸元素无-webkit-overflow-scrolling样式时，不管有无滚动条，touchmove事件都会穿透至视图下层带有-webkit-overflow-scrolling的元素上。一般黑色背景遮罩都是这种情况。
-解决方法一、触摸元素内部解决。对于本身无需滚动的元素，可直接在touchmove上阻止默认事件e.preventDefault()来达到目的。而对于不确定触摸元素是否可以滚动的元素，为触摸元素添加-webkit-overflow-scrolling样式，并且在touchmove中判断自身无滚动条时，阻止默认事件e.preventDefault()。
-解决方法二、触摸元素外部解决。一般触摸元素为弹框，当触摸元素显示时，为穿透滚动的元素添加overflow: hidden属性，使其无法滚动，当触摸元素隐藏时，去除穿透滚动元素的overflow: hidden属性。
-可根据触摸元素和穿透滚动的元素的数量，自行选择改动量较小的解决方案。
+Parameter   | Description
+----------- | -----------
+readtime    | If you want a post to show how many minutes it will take to read it, use `readtime: true`.
+show-avatar | If you have an avatar configured in the `_config.yml` but you want to turn it off on a specific page, use `show-avatar: false`.
+social-share | By default, every blog post has buttons to share the page on social media. If you want to turn this feature off, use `social-share: false`.
+nav-short   | By default, the navigation bar gets shorter after scrolling down the page. If you want the navigation bar to always be short on a certain page, use `nav-short: true`
+gh-repo   | If you want to show GitHub buttons at the top of a post, this sets the GitHub repo name (eg. `daattali/beautiful-jekyll`). You must also use the `gh-badge` parameter to specify what buttons to show.
+gh-badge  | Select which GitHub buttons to display. Available options are: [star, watch, fork, follow]. You must also use the `gh-repo` parameter to specify the GitHub repo.
+last-updated | If you want to show that a blog post was updated after it was originally released, you can specify an "Updated on" date.
+layout      | What type of page this is (default is `post` for blog posts and `page` for other pages). See _Page types_ section below for more information.
 
+## Advanced parameters
 
-25、（IOS11.1、11.2）输入框聚焦时，软键盘遮挡住了输入框
-解决方案：在聚焦时，不要使用scrollTop和scrollIntoView。
-参考链接：https://segmentfault.com/q/1010000012033973 
+These are advanced parameters that are only useful for people who need very fine control over their website.
 
-26、（IOS）输入框使用原生软键盘输入拼音，不选择中文，然后使输入框失焦，在输入框内出现双倍的拼音内容
-解决方案：在聚焦时使用了this.select()或者input.selectionStart = input.value.length都会出现输入法的拼音重复添加的现象，去除使用上述方法
+Parameter   | Description
+----------- | -----------
+footer-extra | If you want to include extra content below the social media icons in the footer, create an HTML file in the `_includes/` folder (for example `_includes/myinfo.html`) and set `footer-extra` to the name of the file (for example `footer-extra: myinfo.html`). Accepts a single file or a list of files.
+before-content | Similar to `footer-extra`, but used for including HTML before the main content of the page (below the title).
+after-content | Similar to `footer-extra`, but used for including HTML after the main content of the page (above the footer).
+head-extra   | Similar to `footer-extra`, but used if you have any HTML code that needs to be included in the `<head>` tag of the page.
+language    | HTML language code to be set on the page's &lt;html&gt; element.
+full-width  | By default, page content is constrained to a standard width. Use `full-width: true` to allow the content to span the entire width of the window.
+js          | List of local JavaScript files to include in the page (eg. `/assets/js/mypage.js`)
+ext-js      | List of external JavaScript files to include in the page (eg. `//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js`). External JavaScript files that support [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) can be specified using the `href` and `sri` parameters eg.<br/>`href: "//code.jquery.com/jquery-3.1.1.min.js"`<br/>`sri: "sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="`
+css         | List of local CSS files to include in the page
+ext-css      | List of external CSS files to include in the page. External CSS files using SRI (see `ext-js` parameter) are also supported.
 
+## Page types
 
-26、问题：元素从无到有显示时，无法触发过渡动画
-原因：display: none状态的切换影响了其他过渡效果的切换，毕竟为none的元素没法触发过渡。
-解决方案：将offsetWidth打开，就会发现过渡生效了，原因在于取offsetWidth导致浏览器出现重绘，使后面的style修改前，display确确实实变为了block，从而消除了元素状态为none对过渡的这种影响。添加setTimeout(() => {}, 20)，“打断”js的执行也可生效。
+- **post** - To write a blog post, add a markdown or HTML file in the `_posts` folder. As long as you give it YAML front matter (the two lines of three dashes), it will automatically be rendered like a blog post. Look at the existing blog post files to see examples of how to use YAML parameters in blog posts.
+- **page** - Any page outside the `_posts` folder that uses YAML front matter will have a very similar style to blog posts.
+- **home** - The home layout is meant to act as the homepage of your blog posts - it will display all your blog posts, sorted from newest to oldest. A file using the `home` layout must be named `index.html` (not `index.md` or anything else!).
+- **minimal** - If you want to create a page with minimal styling (ie. without the bulky navigation bar and footer), assign `layout: minimal` to the YAML front matter.
+- If you want to completely bypass the template engine and just write your own HTML page, simply omit the YAML front matter. Only do this if you know how to write HTML!
 
+# Featured users (success stories!)
 
-27、last-of-type不生效问题
-问题原因：使用last-of-type的元素节点之后不可有兄弟节点
+Visit the [Official website](http://beautifuljekyll.com/examples) to see sample websites using Beautiful Jekyll.
 
-28、长图片和宽图片同时自适应父容器
-```javascript
-	max-height：100%;
-	max-height：100%;
-```
+If you'd like to showcase yourself and join this list, [upgrading to the Individual plan](https://github.com/sponsors/daattali/sponsorships?&tier_id=7362) will give you that publicity plus some other rewards!
 
-29、文字多行溢出省略号
-```javascript
-	overflow: hidden;
-	-webkit-line-clamp: 5;
-	moz-line-clamp: 5;
-	ms-line-clamp: 5;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-ms-box-orient: vertical;
-	-moz-box-orient: vertical;
-```
+# FAQ and support
+
+Visit the [official FAQ page](https://beautifuljekyll.com/faq) for answers to commonly asked questions.
+
+Beautiful Jekyll is used by 50,000+ people with wildly varying degrees of web skills, so it's impossible to answer all the questions that may arise. For any question that's not specifically related to Beautiful Jekyll and is more about Jekyll or web development in general, the answer can often be found on Google, in the [Jekyll documentation](https://jekyllrb.com/), or on the [Jekyll support forum](https://talk.jekyllrb.com/).
+
+To receive support, select one of the [different plans](https://beautifuljekyll.com/plans) Beautiful Jekyll offers. You can also use the [Discussions](https://github.com/daattali/beautiful-jekyll/discussions) area to try to get help from the community.
+
+# Contributions
+
+Thank you to [all past contributors](https://github.com/daattali/beautiful-jekyll/graphs/contributors). If you find any problems or would like to contribute in any way, feel free to create a pull request/open an issue/send me a message.
+
+You can also contribute by becoming an [official sponsor](https://github.com/sponsors/daattali/sponsorships?tier_id=39856) to help keep Beautiful Jekyll well-maintained.
+
+# Credits
+
+This template was not made *entirely* from scratch. I'd like to give special thanks to [Jekyll Now](https://github.com/barryclark/jekyll-now) and [Bootstrap Clean Blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog), from whom I've taken several ideas initially.
+
+I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](http://jekyllthemes.org/), and another [Jekyll Themes](http://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
+
