@@ -8,9 +8,11 @@ tags: [share]
 comments: true
 ---
 
-# babel.config.js
+![helsinki.jpeg](../img/posts/vue-vonfig/1.jpg)
 
-## 浏览器兼容
+# 1. babel.config.js
+
+### 1.1 浏览器兼容
 
   * presets: array
   
@@ -38,9 +40,9 @@ comments: true
   }
   ```
 
-# vue.config.js
+# 2. vue.config.js
 
-## 简单配置
+### 2.1 简单配置
 
 * 旧baseUrl: '/' ——> 新publicPath: '/' 
 
@@ -69,7 +71,7 @@ comments: true
   它可以用来传递任何第三方插件选项
 
 
-## 常用配置
+### 2.2 常用配置
 
 * pages
 
@@ -131,7 +133,7 @@ comments: true
     }
     ```
 
-## HTML与静态资源
+### 2.3 HTML与静态资源
 
 * 插值
   
@@ -160,7 +162,7 @@ comments: true
   - 有些库可能和 webpack 不兼容，这时你除了将其用一个独立的 ```<script>``` 标签引入没有别的选择
 
 
-## CSS相关
+### 2.4 CSS相关
 
 * PostCSS
   
