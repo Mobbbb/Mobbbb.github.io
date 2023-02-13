@@ -8,12 +8,11 @@ tags: [share]
 comments: true
 ---
 
-![bg](../assets/img/posts/vue-vonfig/1.jpg)
+![bg](../assets/img/posts/vue-config/1.jpg)
 
 # 1. babel.config.js
 
 ### 1.1 浏览器兼容
-
 
 - presets: array
   
@@ -45,7 +44,6 @@ comments: true
 
 ### 2.1 简单配置
 
-
 * 旧baseUrl: '/' ——> 新publicPath: '/' 
 
   tips：请始终使用 ```publicPath ``` 而不要直接修改 webpack 的 ```output.publicPath```。
@@ -66,7 +64,7 @@ comments: true
 
   生产环境使用 source map，可以将其设置为 false 以加速生产环境构建。
 
-  - 开启：f12 -> settings -> enable js source maps
+  开启：f12 -> settings -> enable js source maps
 
 * pluginOptions: Object
 
