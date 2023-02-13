@@ -4,7 +4,7 @@ title: vue config 配置
 subtitle: 
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [star, fork, follow]
-tags: [share]
+tags: [vue]
 comments: true
 ---
 
@@ -87,7 +87,7 @@ comments: true
 
   - chunks: ['chunk-vendors', 'chunk-common'] // 在这个页面中包含的块，默认情况下会包含vendors和common
 
-* configureWebpack: Object &verbar; Function
+* configureWebpack: Object \| Function
 
   如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
 
@@ -150,7 +150,7 @@ comments: true
 
 * 从相对路径导入
 
-  - 当你在 JavaScript、CSS 或 *.vue 文件中使用相对路径 (必须以 . 开头) 引用一个静态资源时，该资源将会被包含进入 webpack 的依赖图中。在其编译过程中，所有诸如 <img src="...">、background: url(...) 和 CSS @import 的资源 URL 都会被解析为一个模块依赖。
+  - 当你在 JavaScript、CSS 或 *.vue 文件中使用相对路径 (必须以 . 开头) 引用一个静态资源时，该资源将会被包含进入 webpack 的依赖图中。在其编译过程中，所有诸如 ```<img src="...">```、background: url(...) 和 CSS @import 的资源 URL 都会被解析为一个模块依赖。
   - 在其内部，通过 file-loader 用版本哈希值和正确的公共基础路径来决定最终的文件路径，再用 url-loader 将小于 4kb 的资源内联，以减少 HTTP 请求的数量
 
 * public
@@ -172,7 +172,7 @@ comments: true
 
   你可以通过 ```<style module>``` 以开箱即用的方式在 *.vue 文件中使用 CSS Modules。
 
-  如果想在 JavaScript 中作为 CSS Modules 导入 CSS 或其它预处理文件，该文件应该以 .module.(css&verbar;less&verbar;sass&verbar;scss&verbar;styl) 结尾：
+  如果想在 JavaScript 中作为 CSS Modules 导入 CSS 或其它预处理文件，该文件应该以 .module.(css\|less\|sass\|scss\|styl) 结尾：
 
   ```javascript
   module.exports = {
