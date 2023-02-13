@@ -8,13 +8,14 @@ tags: [share]
 comments: true
 ---
 
-![helsinki.jpeg](../img/posts/vue-vonfig/1.jpg)
+![bg](../assets/img/posts/vue-vonfig/1.jpg)
 
 # 1. babel.config.js
 
 ### 1.1 浏览器兼容
 
-  * presets: array
+
+- presets: array
   
   默认情况下，它会根据源代码中出现的语言特性自动检测需要的 polyfill。这确保了最终包里 polyfill 数量的最小化。然而，这也意味着如果其中一个依赖需要特殊的 polyfill，默认情况下 Babel 无法将其检测出来
 
@@ -43,6 +44,7 @@ comments: true
 # 2. vue.config.js
 
 ### 2.1 简单配置
+
 
 * 旧baseUrl: '/' ——> 新publicPath: '/' 
 
