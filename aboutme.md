@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About me
+title: 
+subtitle: 
 ---
 
 ![avatar](./assets/img/aboutme-bg.png)
