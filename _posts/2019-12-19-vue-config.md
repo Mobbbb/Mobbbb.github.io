@@ -87,7 +87,7 @@ comments: true
 
   - chunks: ['chunk-vendors', 'chunk-common'] // 在这个页面中包含的块，默认情况下会包含vendors和common
 
-* configureWebpack: Object | Function
+* configureWebpack: Object &verbar; Function
 
   如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
 
@@ -172,7 +172,7 @@ comments: true
 
   你可以通过 ```<style module>``` 以开箱即用的方式在 *.vue 文件中使用 CSS Modules。
 
-  如果想在 JavaScript 中作为 CSS Modules 导入 CSS 或其它预处理文件，该文件应该以 .module.(css|less|sass|scss|styl) 结尾：
+  如果想在 JavaScript 中作为 CSS Modules 导入 CSS 或其它预处理文件，该文件应该以 .module.(css&verbar;less&verbar;sass&verbar;scss&verbar;styl) 结尾：
 
   ```javascript
   module.exports = {
