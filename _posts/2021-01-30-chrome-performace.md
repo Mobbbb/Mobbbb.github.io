@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Chrome Performace
+title: Chrome Devtool Performance
 subtitle: 
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [star, fork, follow]
-tags: [web, performance, share]
+tags: [web, chrome, share]
 comments: true
 ---
 
@@ -98,10 +98,20 @@ comments: true
   - Scrolling Performance Issues 分析鼠标滚动时的性能问题，会显示使屏幕滚动变慢的区域。
   - Emulate CSS Media 仿真CSS媒体类型，查看不同的设备上CSS样式效果，可能的媒体类型选项有print、screen
 
-#  5. 参考链接
+## References
 
 [1] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)
 
 [2] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
 
 [3] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference)
+
+## 其他相关
+
+[1] 为什么帧率达到60fps页面就流畅？- [https://www.jianshu.com/p/90319dbf6fe7](https://www.jianshu.com/p/90319dbf6fe7)
+
+[2] 全新Chrome Devtool Performance使用指南 -  [https://zhuanlan.zhihu.com/p/29879682](https://zhuanlan.zhihu.com/p/29879682)
+
+[3] Lighthouse -  [https://developers.google.com/web/tools/lighthouse/](https://developers.google.com/web/tools/lighthouse/)
+
+[4] 页面渲染：性能分析 - [https://www.codercto.com/a/23704.html](https://www.codercto.com/a/23704.html)

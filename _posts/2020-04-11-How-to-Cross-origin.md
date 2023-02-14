@@ -4,7 +4,7 @@ title: How to Cross-origin
 subtitle: 
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [star, fork, follow]
-tags: [web, origin, share]
+tags: [web, chrome, share]
 comments: true
 ---
 
