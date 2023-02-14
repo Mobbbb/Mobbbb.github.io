@@ -62,7 +62,7 @@ CORS
 
 CSRF(Cross-site request forgery) 跨站请求伪造
 
-![bg1](../assets/img/posts/vue-config/1.png)
+![bg1](../assets/img/posts/cross-origin/1.png)
 
 
 ## 3. 跨源脚本API访问
@@ -111,7 +111,7 @@ B网页就可以读到这个 Cookie。
 
 ## 5. 跨域资源共享CORS
 
-![cross-origin error](../assets/img/posts/vue-config/2.png)
+![bg2](../assets/img/posts/cross-origin/2.png)
 
 跨域资源共享(CORS) 是一种机制，它使用额外的HTTP头来告诉浏览器让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
 
@@ -244,9 +244,9 @@ JSON with Padding
 
 ### 7.2 Chrome限制
 
-![cross-origin error](../assets/img/posts/vue-config/3.png)
+![bg3](../assets/img/posts/cross-origin/3.png)
 
-![cross-origin flag](../assets/img/posts/vue-config/4.png)
+![bg4](../assets/img/posts/cross-origin/4.png)
 
 2016年引进了`SameSite`属性，来对Cookie的能够使用的环境进行限制。`SameSite`有3种取值: `Strict`, `Lax`, `None`。
 
