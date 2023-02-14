@@ -10,7 +10,7 @@ comments: true
 
 ![bg](../assets/img/posts/vue-config/1.jpg)
 
-### 1. 介绍：
+### 1. 介绍
 
    > 运行时性能分析工具，匿名模式下使用最佳，可以保证当前环境不受到影响，比如插件的影响；
 
@@ -74,7 +74,8 @@ comments: true
     	* 
     	  ![img](../assets/img/posts/chrome-performace/eventlog.png)
 
-3. 如何看出问题(红色小三角)：
+### 3. 如何看出问题(红色小三角)
+
   * Handler took xxx ms 操作消耗太多时间
   * forced reflow is likely performance bottleneck “强制同步布局”可能会导致性能问题，通常是因为修改样式后读取属性，导致了浏览器必须重新渲染以获取最新的属性值。
   * “布局抖动”是指反复出现强制同步布局情况。 这种情况会在 JavaScript 从 DOM 反复地写入和读取时出现，将会强制浏览器反复重新计算布局。 要确定布局抖动，请找到多个强制同步布局警告的模式。[布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
@@ -88,7 +89,8 @@ comments: true
   	}
   ```
 
-4. Rendering  tab
+### 4. Rendering  tab
+
   - Paint Flashing 高亮显示网页中需要被重绘的部分。
   - Layout Shift Regions 
   - Layer Borders 显示Layer边界。
@@ -96,7 +98,10 @@ comments: true
   - Scrolling Performance Issues 分析鼠标滚动时的性能问题，会显示使屏幕滚动变慢的区域。
   - Emulate CSS Media 仿真CSS媒体类型，查看不同的设备上CSS样式效果，可能的媒体类型选项有print、screen
 
-5. 参考链接
-  - Analyzing Runtime Performance - [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)
-  - Performance Analysis Reference - [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
-  - Timeline event - [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference)
+#  5. 参考链接
+
+[1] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance)
+
+[2] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
+
+[3] [https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference)

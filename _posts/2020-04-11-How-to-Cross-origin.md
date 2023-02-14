@@ -276,14 +276,14 @@ Chrome默认设置Lax
 
 ## References
 
-[1] https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+[1] [https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 
-[2] http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+[2] [http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 
-[3] http://www.ruanyifeng.com/blog/2016/04/cors.html
+[3] [http://www.ruanyifeng.com/blog/2016/04/cors.html](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
-[4] https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+[4] [https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
-[5] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+[5] [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-[6] https://web.dev/samesite-cookies-explained/
+[6] [https://web.dev/samesite-cookies-explained/](https://web.dev/samesite-cookies-explained/)
