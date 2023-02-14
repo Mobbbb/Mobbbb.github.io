@@ -4,7 +4,7 @@ title: vue config 配置
 subtitle: 
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [star, fork, follow]
-tags: [vue]
+tags: [vue, share]
 comments: true
 ---
 
