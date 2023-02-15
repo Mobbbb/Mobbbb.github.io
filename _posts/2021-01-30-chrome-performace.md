@@ -19,17 +19,27 @@ comments: true
   ![performance组成](../assets/img/posts/chrome-performace/1.png)
 
   - Controls(控制面板)。开始记录，停止记录和配置记录期间捕获的信息。
+  
   	* Disable JavaScript samples 默认情况下，记录中Main部分会详细显示整个录制过程中JavaScript函数调用栈情况，作用：禁用JavaScript示例可以减少在移动设备上运行时的开销。
   		![默认状态](../assets/img/posts/chrome-performace/able-js.png)
   		![禁用状态](../assets/img/posts/chrome-performace/disable-js.png)
+
   	* Network 设置网络加载速度
+
   	* CPU 将CPU设置为需要的运算速度模式，例如，4x slowdown 选项会使你本地CPU运算速率比正常情况下下降4倍
+
   	* Enable advanced paint instrumentation 加速渲染工具  记录渲染事件的细节
+
   	*  Memory 内存消耗记录：勾选后可以看到各种内存消耗曲线
+
   - Overview(概览面板)。 页面性能的高级汇总。
+
      	* FPS 每秒帧数。绿色竖线越高，FPS 越高。 FPS 图表上的红色块表示长时间帧，很可能会出现卡顿。
+
      	* CPU 处理各个任务花费的时间，选择一段CPU统计可以在区域四的Summary看到统计表格
+
      	* NET 各个请求花费时间，每条彩色横杠表示一种资源。横杠越长，检索资源所需的时间越长，每个横杠的浅色部分表示等待时间。
+
   - Flame graph(火焰图)。 您可以在火焰图上看到一到三条垂直的虚线、蓝线代表DOMContentLoaded 事件、绿线代表首次绘制的时间、红线代表 load 事件。
     * Frames 帧线程，鼠标悬浮绿色块可以看到fps
 
@@ -62,17 +72,21 @@ comments: true
       >	  闲置：浏览器空闲
 
     * Bottom-Up 排序：可以看到各个事件消耗时间排序，分析哪些活动占用时间更多
-    		- self-time 指除去子事件这个事件本身消耗的时间
+
+    	- self-time 指除去子事件这个事件本身消耗的时间
+
     	- total-time 这个事件从开始到结束消耗的时间（包含子事件）
+
     	![img](../assets/img/posts/chrome-performace/bottom-up.png)
     	
     *  Call Tree 调用栈：Main选择一个事件，可以看到整个事件的调用栈, 从最顶层到最底层，而不是只有当前事件
     	
     	* Event Log事件日志 按顺序分析记录中发生的活动
     	* 多了个start time，指事件在多少毫秒开始触发的
-    	* ![img](../assets/img/posts/chrome-performace/calltree.png)
-    	* 
-    	  ![img](../assets/img/posts/chrome-performace/eventlog.png)
+
+    	![img](../assets/img/posts/chrome-performace/calltree.png)
+      
+    	![img](../assets/img/posts/chrome-performace/eventlog.png)
 
 ### 3. 如何看出问题(红色小三角)
 
@@ -81,12 +95,12 @@ comments: true
   * “布局抖动”是指反复出现强制同步布局情况。 这种情况会在 JavaScript 从 DOM 反复地写入和读取时出现，将会强制浏览器反复重新计算布局。 要确定布局抖动，请找到多个强制同步布局警告的模式。[布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
 
   ```javascript
-  	function resizeAllParagraphsToMatchBlockWidth() {
-  		  // Puts the browser into a read-write-read-write cycle.
-  		  for (var i = 0; i < paragraphs.length; i++) {
-  		    paragraphs[i].style.width = box.offsetWidth + 'px';
-  		  }
-  	}
+  function resizeAllParagraphsToMatchBlockWidth() {
+      // Puts the browser into a read-write-read-write cycle.
+      for (var i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.width = box.offsetWidth + 'px';
+      }
+  }
   ```
 
 ### 4. Rendering  tab
