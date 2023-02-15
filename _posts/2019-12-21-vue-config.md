@@ -1,6 +1,6 @@
 ---
 layout: post
-title: vue config 配置
+title: Vue config 配置
 subtitle: 
 # gh-repo: daattali/beautiful-jekyll
 # gh-badge: [star, fork, follow]
