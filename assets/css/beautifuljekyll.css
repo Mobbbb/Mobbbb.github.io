@@ -26,6 +26,10 @@ p {
   line-height: 1.5;
   margin: 0;
 }
+ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
 li {
   margin-bottom: 1rem;
 }
@@ -1007,7 +1011,7 @@ pre {
 
 .blog-post blockquote {
   padding: 0.625rem 1.25rem;
-  margin: 0 0 1.25rem;
+  margin: 0.75rem 0 1.25rem 0;
   font-size: 1.1rem;
   border-left: 0.3125rem solid #eee;
 }
