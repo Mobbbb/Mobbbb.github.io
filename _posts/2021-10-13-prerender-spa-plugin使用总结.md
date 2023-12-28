@@ -15,7 +15,7 @@ comments: true
 
 ### 2. Unable to prerender all routes!
 - 1、由于`webpack5: mkdirp is no longer expected to be a function on the output file system`，如果当前使用的是webpack5版本，需更新插件代码。
-- 2、作者提交的修复版本的分支 https://github.com/jsbugwang/prerender-spa-plugin/tree/webpack5
+- 2、作者提交的修复版本的分支 [https://github.com/jsbugwang/prerender-spa-plugin/tree/webpack5](https://github.com/jsbugwang/prerender-spa-plugin/tree/webpack5)
 - 3、ps：该分支漏了 `const fs = require('fs')` 的声明，需自行加上
 - 4、ps：可在 `perrender-spa-plugin/es6/index.js` 中，代码 `console.error(msg)` 处添加 `console.log(err)` 输出具体报错原因，以定位问题
 
@@ -26,9 +26,9 @@ comments: true
 ### 4. 设置publicPath二级目录后，预渲染白屏
 - 1、`publicPath: process.env.NODE_ENV === 'production' ? '/vue' : '/'`
 - 2、`outputDir: path.join(__dirname, 'dist', '/vue')`
-- 3、参考链接 https://github.com/chrisvfritz/prerender-spa-plugin/issues/344 #takatama, #cnvoa 的评论
+- 3、参考链接 [https://github.com/chrisvfritz/prerender-spa-plugin/issues/344](https://github.com/chrisvfritz/prerender-spa-plugin/issues/344) #takatama, #cnvoa 的评论
 具体配置如下:
-```
+```javascript
 new PrerenderSPAPlugin({
     indexPath: path.join(__dirname, 'dist/vue/index.html'),
     // Required - The path to the webpack-outputted app to prerender.
@@ -57,8 +57,8 @@ new PrerenderSPAPlugin({
 ### 5. 预渲染未请求接口数据(一)
 - 1、在配置插件中增加 `headless: false` ，用以开启无头浏览器进行调试，查看console面板中的错误
 - 2、定位到问题出在发起的接口请求中，打印返回内容为html文本
-- 3、打印查看接口请求地址，为 http://localhost:8080/api/xxx ，原因是代码中接口请求路径为缺省域名的写法，请求时会自动补全当前网页所在的域名
-- 4、更改代码中的请求，补全请求地址，如：http://www.a.c/api/xxx (由于此做法会有跨域问题，并未采用)
+- 3、打印查看接口请求地址，为 `http://localhost:8080/api/xxx` ，原因是代码中接口请求路径为缺省域名的写法，请求时会自动补全当前网页所在的域名
+- 4、更改代码中的请求，补全请求地址，如：`http://www.a.c/api/xxx` (由于此做法会有跨域问题，并未采用)
 - 5、查看PrerenderSPAPlugin源码发现其使用的服务为express框架，并用到了http-proxy-middleware反向代理，所以只要在插件中增加配置 server 即可解决，具体配置方法与http-proxy-middleware一致
 
 ### 6. 预渲染未请求接口数据(二)
@@ -68,7 +68,7 @@ new PrerenderSPAPlugin({
 - 4、首先确认nginx中的https配置ssl协议是否如下 `ssl_protocols: TLSv1 TLSv1.1 TLSv1.2`
 - 5、在proxy中增加配置信息 `secure: false` 以关闭ssl证书验证
 具体配置如下:
-```
+```javascript
 new PrerenderSPAPlugin({
     // Required - The path to the webpack-outputted app to prerender.
     staticDir: path.join(__dirname, 'dist'),
