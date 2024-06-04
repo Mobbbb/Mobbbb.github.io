@@ -16,23 +16,19 @@ comments: true
 
 > 浏览器安全的基石是"同源政策"（same-origin policy）
 
-### 1.1 为什么有同源策略?
-
-图 TODO 读取Cookie发送请求到iwencai.com
-
-### 1.2 同源定义
+### 1.1 同源定义
 
 如果两个 URL 的 protocol、port 和 host 都相同的话，则这两个 URL 是同源。
 
-> https://www.iwencai.com/a/index.html
+> https://www.example.com/a/index.html
 
 | URL  | 结果 |
 | ------------- | ------------- |
-| https://www.iwencai.com/b/index.html | 同源 |
-| https://www.iwencai.com/a/index1.html  | 同源 |
-| http://www.iwencai.com/a/index1.html  | 不同源 |
-| http://www.iwencai.com:81/a/index1.html | 不同源 |
-|https://ai.iwencai.com/a/index.html | 不同源 
+| https://www.example.com/b/index.html | 同源 |
+| https://www.example.com/a/index1.html  | 同源 |
+| http://www.example.com/a/index1.html  | 不同源 |
+| http://www.example.com:81/a/index1.html | 不同源 |
+| https://some.example.com/a/index.html | 不同源 
 
 
 ## 2. 跨源网络访问
@@ -93,13 +89,13 @@ Cookie 就是访问者在访问网站后留下的一个信息片段。
 
 只有同源的网页才能共享。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie。
 
-举例来说，A网页是http://ai.iwencai.com/a.html，B网页是http://www.iwencai.com/b.html，那么只要设置相同的document.domain，两个网页就可以共享Cookie。
+举例来说，A网页是http://some.example.com/a.html，B网页是http://www.example.com/b.html，那么只要设置相同的document.domain，两个网页就可以共享Cookie。
 
 > document.domain = 'example.com';
 
 现在，A网页通过脚本设置一个 Cookie。
 
-> document.cookie = "myCookie=fromAI;path=/;domain=ai.iwencai.com";
+> document.cookie = "myCookie=fromAI;path=/;domain=some.example.com";
 
 B网页就可以读到这个 Cookie。
 
@@ -115,7 +111,7 @@ B网页就可以读到这个 Cookie。
 
 跨域资源共享(CORS) 是一种机制，它使用额外的HTTP头来告诉浏览器让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
 
-比如https://www.iwencai.com/ 里面发起跨源Http请求(XMLHttpRequest Fetch)，会被浏览器拦截，除非响应报文包含了正确CORS响应头。
+比如https://www.example.com/ 里面发起跨源Http请求(XMLHttpRequest Fetch)，会被浏览器拦截，除非响应报文包含了正确CORS响应头。
 
 > 并不一定是浏览器限制了发起跨站请求，也可能是跨站请求可以正常发起，但是返回结果被浏览器拦截了
 
@@ -208,7 +204,7 @@ fetch('https://example.com', {
 
 ```
 Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: https://ai.iwencai.com
+Access-Control-Allow-Origin: https://some.example.com
 Connection: keep-alive
 Content-Encoding: gzip
 Content-Type: application/json;charset=utf-8
